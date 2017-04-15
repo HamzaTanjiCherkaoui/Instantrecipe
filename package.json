@@ -1,0 +1,110 @@
+{
+  "name": "express-graphql-typescript-boilerplate",
+  "version": "1.0.0-rc.3",
+  "description": "A Node.Js boilerplate written in TypeScript with express and GraphQL",
+  "main": "src/index.ts",
+  "scripts": {
+    "install:typings": "./node_modules/.bin/typings install",
+    "install:dev": "npm install && npm run install:typings",
+    "install:clean": "npm prune && ./node_modules/.bin/typings prune",
+    "serve": "./node_modules/.bin/nodemon --watch 'src/**/*.ts'",
+    "serve:debug": "./node_modules/.bin/nodemon --watch 'src/**/*.ts' --debug=6666",
+    "lint": "./node_modules/.bin/gulp lint",
+    "test": "NODE_ENV=test ./node_modules/.bin/gulp test",
+    "test:pretty": "NODE_ENV=test ./node_modules/.bin/gulp test:pretty",
+    "build": "./node_modules/.bin/gulp build",
+    "clean": "./node_modules/.bin/gulp clean",
+    "zip": "./node_modules/.bin/gulp zip",
+    "docs": "npm run docs:generate && npm run docs:server",
+    "docs:generate": "./node_modules/.bin/gulp docs",
+    "docs:server": "./node_modules/.bin/http-server ./docs --cors",
+    "db:migrate": "./node_modules/.bin/knex migrate:latest",
+    "db:migrate:rollback": "./node_modules/.bin/knex migrate:rollback",
+    "db:seed": "./node_modules/.bin/knex seed:run",
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://w3tecch@github.com/w3tecch/express-graphql-typescript-boilerplate.git"
+  },
+  "engines": {
+    "node": "^6.9.2"
+  },
+  "keywords": [
+    "NodeJS",
+    "TypeScript",
+    "express",
+    "GraphQL",
+    "boilerplate",
+    "skeleton",
+    "starter-kit",
+    "w3tec.ch"
+  ],
+  "author": "w3tec.ch <info@w3tec.ch>",
+  "contributors": [
+    {
+      "name": "David Weber",
+      "email": "david.weber@w3tec.ch",
+      "url": "https://github.com/dweber019"
+    },
+    {
+      "name": "Gery Hirschfeld",
+      "email": "gery.hirschfeld@w3tec.ch",
+      "url": "https://github.com/hirsch88"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/w3tecch/express-graphql-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/w3tecch/express-graphql-typescript-boilerplate#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "dataloader": "^1.3.0",
+    "debug": "^2.6.0",
+    "express": "^4.14.0",
+    "express-graphql": "^0.6.1",
+    "faker": "^3.1.0",
+    "graphql": "^0.8.2",
+    "helmet": "^3.4.0",
+    "knex": "^0.12.7",
+    "lodash": "^4.17.4",
+    "morgan": "^1.7.0",
+    "mysql": "^2.13.0",
+    "ts-node": "^2.0.0",
+    "uuid": "^3.0.1",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^1.0.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-json-editor": "^2.2.1",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-tslint": "^7.0.1",
+    "gulp-typedoc": "^2.0.2",
+    "gulp-typescript": "^3.1.4",
+    "gulp-zip": "^3.2.0",
+    "http-server": "^0.9.0",
+    "jasmine": "^2.5.2",
+    "jasmine-spec-reporter": "^3.0.0",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "request": "^2.79.0",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2",
+    "sqlite3": "^3.1.8",
+    "tslint": "^4.3.1",
+    "typedoc": "^0.5.5",
+    "typescript": "^2.2.1",
+    "typings": "^2.1.0"
+  }
+}
