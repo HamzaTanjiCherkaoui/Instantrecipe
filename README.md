@@ -1,6 +1,6 @@
 # Instantrecipe
 
-This project is working on creating app exclusively for instant pot community.
+This project is working on creating app exclusively for the instant pot community.
 
 # Features
 Android ,IOS and Windows app <br/>
