@@ -5,6 +5,8 @@ import { Environment, DB } from '../core';
 import { Exception } from '../exceptions';
 import { Schema } from '../schemas';
 import { RootValue } from '../RootValue';
+
+
 import {
     Context,
     DataLoadersContext,
@@ -24,7 +26,10 @@ export class GraphQLRoutes {
 
     static map(app: express.Application): void {
         GraphQLRoutes.buildContext();
+        
 
+
+       
         // Add GraphQL to express route
         app.use('/graphql', (req: express.Request, res: express.Response) => {
             // Creates a GraphQLHTTP per request
@@ -43,8 +48,12 @@ export class GraphQLRoutes {
                     path: exception.path
                 })
             })(req, res);
-        });
+            });
+
+       
     }
+
+   
 
     private static buildContext(): void {
         ServicesContext.getInstance()

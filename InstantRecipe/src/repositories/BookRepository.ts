@@ -5,6 +5,7 @@ import { Tables } from '../core/Tables';
 import { AbstractRepository } from './AbstractRepository';
 
 
+
 export class BookRepository extends AbstractRepository<Knex> {
 
     public async findAll(options: common.PageinationArguments): Promise<models.book.RawAttributes[]> {

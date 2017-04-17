@@ -12,14 +12,15 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>967db291-74cb-4141-b794-ae94d570ce93</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.js</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <NodejsPort>1337</NodejsPort>
     <StartWebBrowser>true</StartWebBrowser>
   </PropertyGroup>
@@ -30,9 +31,214 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="server.js" />
+    <Compile Include="src\config.js" />
+    <Compile Include="src\context\context.js" />
+    <Compile Include="src\context\DataloadersContext.js" />
+    <Compile Include="src\context\index.js" />
+    <Compile Include="src\context\ServicesContext.js" />
+    <Compile Include="src\core\Database.js" />
+    <Compile Include="src\core\Environment.js" />
+    <Compile Include="src\core\GraphQLErrorHandling.js" />
+    <Compile Include="src\core\index.js" />
+    <Compile Include="src\core\Logger.js" />
+    <Compile Include="src\core\Server.js" />
+    <Compile Include="src\core\Tables.js" />
+    <Compile Include="src\core\Utils.js" />
+    <Compile Include="src\database\factories\AuthorFactory.js" />
+    <Compile Include="src\database\factories\BookFactory.js" />
+    <Compile Include="src\database\migrations\20170220183349_create_authors_table.js" />
+    <Compile Include="src\database\migrations\20170221195948_create_books_table.js" />
+    <Compile Include="src\database\seeds\20170220183349_authors.js" />
+    <Compile Include="src\database\seeds\20170221195948_book.js" />
+    <Compile Include="src\exceptions\Exception.js" />
+    <Compile Include="src\exceptions\FieldException.js" />
+    <Compile Include="src\exceptions\index.js" />
+    <Compile Include="src\exceptions\NotFoundException.js" />
+    <Compile Include="src\exceptions\ValidationException.js" />
+    <Compile Include="src\index.js" />
+    <Compile Include="src\middlewares\index.js" />
+    <Compile Include="src\middlewares\OAuthMiddleware.js" />
+    <Compile Include="src\models\AbstactModel.js" />
+    <Compile Include="src\models\AuthorModel.js" />
+    <Compile Include="src\models\BookModel.js" />
+    <Compile Include="src\models\index.js" />
+    <Compile Include="src\RootValue.js" />
+    <Compile Include="src\routes\DefaultRoutes.js" />
+    <Compile Include="src\routes\GraphQLRoutes.js" />
+    <Compile Include="src\routes\index.js" />
+    <Compile Include="src\schemas\arguments\index.js" />
+    <Compile Include="src\schemas\arguments\LimitArgument.js" />
+    <Compile Include="src\schemas\arguments\OffsetArgument.js" />
+    <Compile Include="src\schemas\arguments\TextArgument.js" />
+    <Compile Include="src\schemas\fields\AbstractField.js" />
+    <Compile Include="src\schemas\fields\AuthorField.js" />
+    <Compile Include="src\schemas\fields\BooksField.js" />
+    <Compile Include="src\schemas\fields\CreatedAtField.js" />
+    <Compile Include="src\schemas\fields\DescriptionField.js" />
+    <Compile Include="src\schemas\fields\FirstNameField.js" />
+    <Compile Include="src\schemas\fields\IdField.js" />
+    <Compile Include="src\schemas\fields\index.js" />
+    <Compile Include="src\schemas\fields\LastNameField.js" />
+    <Compile Include="src\schemas\fields\PriceField.js" />
+    <Compile Include="src\schemas\fields\PublishedAtField.js" />
+    <Compile Include="src\schemas\fields\TitleField.js" />
+    <Compile Include="src\schemas\fields\TypeField.js" />
+    <Compile Include="src\schemas\fields\UpdatedAtField.js" />
+    <Compile Include="src\schemas\index.js" />
+    <Compile Include="src\schemas\mutations\AbstractMutation.js" />
+    <Compile Include="src\schemas\mutations\createAuthorMutation.js" />
+    <Compile Include="src\schemas\mutations\DeleteAuthorMutation.js" />
+    <Compile Include="src\schemas\mutations\index.js" />
+    <Compile Include="src\schemas\mutations\UpdateAuthorMutation.js" />
+    <Compile Include="src\schemas\types\AuthorType.js" />
+    <Compile Include="src\schemas\types\BookType.js" />
+    <Compile Include="src\schemas\types\DateType.js" />
+    <Compile Include="src\schemas\types\index.js" />
+    <Compile Include="src\schemas\types\SearchType.js" />
+    <Compile Include="src\services\AuthorService.js" />
+    <Compile Include="src\services\BookService.js" />
+    <Compile Include="src\services\index.js" />
     <Content Include="package.json" />
-    <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="src\context\" />
+    <Folder Include="src\core\" />
+    <Folder Include="src\database\" />
+    <Folder Include="src\database\factories\" />
+    <Folder Include="src\database\migrations\" />
+    <Folder Include="src\database\seeds\" />
+    <Folder Include="src\exceptions\" />
+    <Folder Include="src\middlewares\" />
+    <Folder Include="src\models\" />
+    <Folder Include="src\repositories\" />
+    <Folder Include="src\routes\" />
+    <Folder Include="src\schemas\" />
+    <Folder Include="src\schemas\arguments\" />
+    <Folder Include="src\schemas\fields\" />
+    <Folder Include="src\schemas\mutations\" />
+    <Folder Include="src\schemas\queries\" />
+    <Folder Include="src\schemas\types\" />
+    <Folder Include="src\services\" />
+    <Folder Include="typings\" />
+    <Folder Include="typings\globals\" />
+    <Folder Include="typings\globals\express-graphql\" />
+    <Folder Include="typings\globals\express-serve-static-core\" />
+    <Folder Include="typings\globals\faker\" />
+    <Folder Include="typings\globals\jasmine\" />
+    <Folder Include="typings\globals\morgan\" />
+    <Folder Include="typings\globals\winston\" />
+    <Folder Include="typings\modules\" />
+    <Folder Include="typings\modules\bluebird\" />
+    <Folder Include="typings\modules\body-parser\" />
+    <Folder Include="typings\modules\cors\" />
+    <Folder Include="typings\modules\debug\" />
+    <Folder Include="typings\modules\express\" />
+    <Folder Include="typings\modules\graphql\" />
+    <Folder Include="typings\modules\helmet\" />
+    <Folder Include="typings\modules\knex\" />
+    <Folder Include="typings\modules\lodash\" />
+    <Folder Include="typings\modules\mime\" />
+    <Folder Include="typings\modules\request\" />
+    <Folder Include="typings\modules\serve-static\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\config.ts" />
+    <TypeScriptCompile Include="src\context\context.ts" />
+    <TypeScriptCompile Include="src\context\DataloadersContext.ts" />
+    <TypeScriptCompile Include="src\context\index.ts" />
+    <TypeScriptCompile Include="src\context\ServicesContext.ts" />
+    <TypeScriptCompile Include="src\core\Database.ts" />
+    <TypeScriptCompile Include="src\core\Environment.ts" />
+    <TypeScriptCompile Include="src\core\GraphQLErrorHandling.ts" />
+    <TypeScriptCompile Include="src\core\index.ts" />
+    <TypeScriptCompile Include="src\core\Logger.ts" />
+    <TypeScriptCompile Include="src\core\Server.ts" />
+    <TypeScriptCompile Include="src\core\Tables.ts" />
+    <TypeScriptCompile Include="src\core\Utils.ts" />
+    <TypeScriptCompile Include="src\database\factories\AuthorFactory.ts" />
+    <TypeScriptCompile Include="src\database\factories\BookFactory.ts" />
+    <TypeScriptCompile Include="src\database\migrations\20170220183349_create_authors_table.ts" />
+    <TypeScriptCompile Include="src\database\migrations\20170221195948_create_books_table.ts" />
+    <TypeScriptCompile Include="src\database\seeds\20170220183349_authors.ts" />
+    <TypeScriptCompile Include="src\database\seeds\20170221195948_book.ts" />
+    <TypeScriptCompile Include="src\exceptions\Exception.ts" />
+    <TypeScriptCompile Include="src\exceptions\FieldException.ts" />
+    <TypeScriptCompile Include="src\exceptions\index.ts" />
+    <TypeScriptCompile Include="src\exceptions\NotFoundException.ts" />
+    <TypeScriptCompile Include="src\exceptions\ValidationException.ts" />
+    <TypeScriptCompile Include="src\index.ts" />
+    <TypeScriptCompile Include="src\middlewares\index.ts" />
+    <TypeScriptCompile Include="src\middlewares\OAuthMiddleware.ts" />
+    <TypeScriptCompile Include="src\models\AbstactModel.ts" />
+    <TypeScriptCompile Include="src\models\AuthorModel.ts" />
+    <TypeScriptCompile Include="src\models\BookModel.ts" />
+    <TypeScriptCompile Include="src\models\index.ts" />
+    <TypeScriptCompile Include="src\repositories\AbstractRepository.ts" />
+    <TypeScriptCompile Include="src\repositories\AuthorRepository.ts" />
+    <TypeScriptCompile Include="src\repositories\BookRepository.ts" />
+    <TypeScriptCompile Include="src\repositories\index.ts" />
+    <TypeScriptCompile Include="src\RootValue.ts" />
+    <TypeScriptCompile Include="src\routes\DefaultRoutes.ts" />
+    <TypeScriptCompile Include="src\routes\GraphQLRoutes.ts" />
+    <TypeScriptCompile Include="src\routes\index.ts" />
+    <TypeScriptCompile Include="src\schemas\arguments\index.ts" />
+    <TypeScriptCompile Include="src\schemas\arguments\LimitArgument.ts" />
+    <TypeScriptCompile Include="src\schemas\arguments\OffsetArgument.ts" />
+    <TypeScriptCompile Include="src\schemas\arguments\TextArgument.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\AbstractField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\AuthorField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\BooksField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\CreatedAtField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\DescriptionField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\FirstNameField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\IdField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\index.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\LastNameField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\PriceField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\PublishedAtField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\TitleField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\TypeField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\UpdatedAtField.ts" />
+    <TypeScriptCompile Include="src\schemas\mutations\AbstractMutation.ts" />
+    <TypeScriptCompile Include="src\schemas\mutations\createAuthorMutation.ts" />
+    <TypeScriptCompile Include="src\schemas\mutations\DeleteAuthorMutation.ts" />
+    <TypeScriptCompile Include="src\schemas\mutations\index.ts" />
+    <TypeScriptCompile Include="src\schemas\mutations\UpdateAuthorMutation.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\AbstractQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\FindAllAuthorsQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\FindAllBooksQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\FindAuthorByIdQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\FindBookByIdQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\index.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\SearchQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\types\AuthorType.ts" />
+    <TypeScriptCompile Include="src\schemas\types\BookType.ts" />
+    <TypeScriptCompile Include="src\schemas\types\DateType.ts" />
+    <TypeScriptCompile Include="src\schemas\types\index.ts" />
+    <TypeScriptCompile Include="src\schemas\types\SearchType.ts" />
+    <TypeScriptCompile Include="src\services\AuthorService.ts" />
+    <TypeScriptCompile Include="src\services\BookService.ts" />
+    <TypeScriptCompile Include="src\services\index.ts" />
+    <TypeScriptCompile Include="typings\globals\express-graphql\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\express-serve-static-core\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\faker\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\jasmine\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\morgan\index.d.ts" />
+    <TypeScriptCompile Include="typings\globals\winston\index.d.ts" />
+    <TypeScriptCompile Include="typings\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\bluebird\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\body-parser\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\cors\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\debug\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\express\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\graphql\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\helmet\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\knex\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\lodash\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\mime\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\request\index.d.ts" />
+    <TypeScriptCompile Include="typings\modules\serve-static\index.d.ts" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

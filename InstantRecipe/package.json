@@ -70,6 +70,7 @@
     "helmet": "^3.4.0",
     "knex": "^0.12.7",
     "lodash": "^4.17.4",
+    "mongodb": "^2.2.25",
     "morgan": "^1.7.0",
     "mysql": "^2.13.0",
     "ts-node": "^2.0.0",
@@ -77,6 +78,7 @@
     "winston": "^2.3.0"
   },
   "devDependencies": {
+    "@types/mongodb": "^2.1.43",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-concat": "^2.6.1",
