@@ -1,6 +1,7 @@
 import { GraphQLFieldDefinition, GraphQLString } from 'graphql';
 
 
+
 export class TitleField implements GraphQLFieldDefinition {
 
     public type = GraphQLString;

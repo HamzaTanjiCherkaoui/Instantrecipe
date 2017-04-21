@@ -1,4 +1,3 @@
-export * from './IdField';
 export * from './DescriptionField';
 export * from './TitleField';
 export * from './TypeField';
@@ -10,3 +9,4 @@ export * from './UpdatedAtField';
 export * from './CreatedAtField';
 export * from './AuthorField';
 export * from './BooksField';
+export * from './TagField'

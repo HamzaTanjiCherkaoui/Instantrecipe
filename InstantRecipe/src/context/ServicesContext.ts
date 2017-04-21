@@ -1,6 +1,7 @@
 import {
     AuthorService,
-    BookService
+    BookService,
+    TagService
 } from '../services';
 
 import { Logger } from '../core/logger';
@@ -13,6 +14,7 @@ export class ServicesContext {
 
     private authorService: AuthorService;
     private bookService: BookService;
+    private tagService: TagService;
 
     static getInstance(): ServicesContext {
         if (!ServicesContext.instance) {
@@ -29,6 +31,10 @@ export class ServicesContext {
         return this.bookService;
     }
 
+    public get TagService(): TagService {
+        return this.tagService;
+    }
+
     public setAuthorService(authorService: AuthorService): ServicesContext {
         this.authorService = authorService;
         log.debug('setAuthorService');
@@ -38,6 +44,12 @@ export class ServicesContext {
     public setBookService(bookService: BookService): ServicesContext {
         this.bookService = bookService;
         log.debug('setBookService');
+        return this;
+    }
+
+    public setTagService(tagService: TagService): ServicesContext {
+        this.tagService = tagService;
+        log.debug('setTagService');
         return this;
     }
 

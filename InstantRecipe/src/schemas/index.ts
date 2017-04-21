@@ -6,7 +6,9 @@ import {
     FindAuthorByIdQuery,
     FindAllBooksQuery,
     FindBookByIdQuery,
-    SearchQuery
+    SearchQuery,
+    FindTagByIdQuery,
+    FindAllTagsQuery
 } from './queries';
 import {
     CreateAuthorMutation,
@@ -25,7 +27,9 @@ export class Schema {
             findAllAuthors: new FindAllAuthorsQuery(),
             findAuthorById: new FindAuthorByIdQuery(),
             findAllBooks: new FindAllBooksQuery(),
-            findBookById: new FindBookByIdQuery()
+            findBookById: new FindBookByIdQuery(),
+            findTagById: new FindTagByIdQuery(),
+            findAllTag: new FindAllTagsQuery()
         }
     });
 

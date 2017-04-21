@@ -14,11 +14,13 @@ import {
 } from '../context';
 import {
     AuthorRepository,
-    BookRepository
+    BookRepository,
+    TagRepository
 } from '../repositories';
 import {
     BookService,
-    AuthorService
+    AuthorService,
+    TagService
 } from '../services';
 
 
@@ -58,11 +60,13 @@ export class GraphQLRoutes {
     private static buildContext(): void {
         ServicesContext.getInstance()
             .setBookService(new BookService(new BookRepository(DB)))
-            .setAuthorService(new AuthorService(new AuthorRepository(DB)));
+            .setAuthorService(new AuthorService(new AuthorRepository(DB)))
+            .setTagService(new TagService(new TagRepository()));
 
         DataLoadersContext.getInstance()
             .setAuthorDataLoader(ServicesContext.getInstance().AuthorService)
-            .setBookDataLoader(ServicesContext.getInstance().BookService);
+            .setBookDataLoader(ServicesContext.getInstance().BookService)
+            .setTagDataLoader(ServicesContext.getInstance().TagService);
     }
 
 }

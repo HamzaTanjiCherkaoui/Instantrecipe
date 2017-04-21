@@ -1,6 +1,6 @@
 import * as DataLoader from 'dataloader';
 
-import { AuthorService, BookService } from '../services';
+import { AuthorService, BookService, TagService} from '../services';
 
 import { Logger } from '../core/logger';
 const log = Logger('app:context:DataLoadersContext');
@@ -12,6 +12,7 @@ export class DataLoadersContext {
 
     private authorDataLaoder: DataLoader<number, any>;
     private bookDataLaoder: DataLoader<number, any>;
+    private tagDataLoader: DataLoader<number, any>;
 
     static getInstance(): DataLoadersContext {
         if (!DataLoadersContext.instance) {
@@ -26,6 +27,10 @@ export class DataLoadersContext {
 
     public get BookDataLoader(): DataLoader<number, any> {
         return this.bookDataLaoder;
+    }
+
+    public get TagDataLoader(): DataLoader<number, any> {
+        return this.tagDataLoader;
     }
 
     public setAuthorDataLoader(authorService: AuthorService): DataLoadersContext {
@@ -43,6 +48,19 @@ export class DataLoadersContext {
             return books.map(b => b.toJson());
         });
         log.debug('setBookDataLoader');
+        return this;
+    }
+
+    public setTagDataLoader(tagService: TagService): DataLoadersContext{
+        this.tagDataLoader = new DataLoader(
+            async (ids:number[]) => {
+
+                const tags = await tagService.findByIds(ids);
+                return tags.map(t => t.toJson());
+            }
+
+        );
+        log.debug('setTagDataLoader');
         return this;
     }
 
