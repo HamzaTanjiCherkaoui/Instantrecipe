@@ -1,6 +1,4 @@
 import {
-    AuthorService,
-    BookService,
     TagService
 } from '../services';
 
@@ -12,8 +10,7 @@ export class ServicesContext {
 
     static instance: ServicesContext;
 
-    private authorService: AuthorService;
-    private bookService: BookService;
+    
     private tagService: TagService;
 
     static getInstance(): ServicesContext {
@@ -23,28 +20,9 @@ export class ServicesContext {
         return ServicesContext.instance;
     }
 
-    public get AuthorService(): AuthorService {
-        return this.authorService;
-    }
-
-    public get BookService(): BookService {
-        return this.bookService;
-    }
-
+   
     public get TagService(): TagService {
         return this.tagService;
-    }
-
-    public setAuthorService(authorService: AuthorService): ServicesContext {
-        this.authorService = authorService;
-        log.debug('setAuthorService');
-        return this;
-    }
-
-    public setBookService(bookService: BookService): ServicesContext {
-        this.bookService = bookService;
-        log.debug('setBookService');
-        return this;
     }
 
     public setTagService(tagService: TagService): ServicesContext {

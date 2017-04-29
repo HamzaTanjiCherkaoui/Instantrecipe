@@ -2,19 +2,9 @@ import { GraphQLObjectType, GraphQLSchema } from 'graphql';
 
 import { GraphQLErrorHandling } from '../core';
 import {
-    FindAllAuthorsQuery,
-    FindAuthorByIdQuery,
-    FindAllBooksQuery,
-    FindBookByIdQuery,
-    SearchQuery,
     FindTagByIdQuery,
     FindAllTagsQuery
 } from './queries';
-import {
-    CreateAuthorMutation,
-    DeleteAuthorMutation,
-    UpdateAuthorMutation
-} from './mutations';
 
 export class Schema {
 
@@ -23,28 +13,21 @@ export class Schema {
     private rootQuery: GraphQLObjectType = new GraphQLObjectType({
         name: 'Query',
         fields: {
-            search: new SearchQuery(),
-            findAllAuthors: new FindAllAuthorsQuery(),
-            findAuthorById: new FindAuthorByIdQuery(),
-            findAllBooks: new FindAllBooksQuery(),
-            findBookById: new FindBookByIdQuery(),
             findTagById: new FindTagByIdQuery(),
             findAllTag: new FindAllTagsQuery()
         }
     });
 
-    private rootMutation: GraphQLObjectType = new GraphQLObjectType({
-        name: 'Mutation',
-        fields: {
-            createAuthor: new CreateAuthorMutation(),
-            updateAuthor: new UpdateAuthorMutation(),
-            deleteAuthor: new DeleteAuthorMutation()
-        }
-    });
+    //private rootMutation: GraphQLObjectType = new GraphQLObjectType({
+    //    name: 'Mutation',
+    //    fields: {
+            
+    //    }
+    //});
 
     private schema: GraphQLSchema = new GraphQLSchema({
         query: this.rootQuery,
-        mutation: this.rootMutation
+        //mutation: this.rootMutation
     });
 
     static get(): GraphQLSchema {
