@@ -1,26 +1,27 @@
 ﻿import { TagRepository } from '../repositories';
-//import { TagModel } from '../models/TagModel';
+import { TagModel } from '../models/TagModel';
 import { Logger } from '../core/logger';
 import { NotFoundException } from '../exceptions';
 
 
 export class TagService {
 
-    private log = Logger('app:service:TagService');
+    private log =  Logger('app:service:TagService');
 
     constructor(private tagRepository: TagRepository) {
     }
 
-    public async findAll(): Promise<any[]> {
+    public async findAll(): Promise<TagModel[]> {
         this.log.debug('findAll called');
         const results = await this.tagRepository.findAll();
+        this.log.debug(results);
         return results;
     }
 
     public async findByIds(ids: any[]): Promise<any> {
         this.log.debug('findByIds called with ids=', ids);
         const results = await this.tagRepository.findByIds(ids);
-        return results;
+        return new TagModel(results, true);
     }
 
     public async findById(id: any): Promise<any> {
@@ -29,7 +30,7 @@ export class TagService {
         if (result === null) {
             throw new NotFoundException(id);
         }
-        return  result;
+        return new TagModel(result, true);
     }
 
     

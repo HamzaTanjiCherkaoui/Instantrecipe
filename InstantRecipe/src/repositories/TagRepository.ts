@@ -1,19 +1,31 @@
 ﻿
 import { models } from 'models';
 import {MongoClient, ObjectID} from 'mongodb';
+import { Logger } from '../core/logger';
+
+
 
 export class TagRepository {
-    public async findAll(): Promise<models.tag.RawAttributes[]> {
+    private log = Logger('app:service:TagRepository');
+
+    public async findAll(): Promise<any> {
 
         let db = await MongoClient.connect('mongodb://localhost:27017/instantrecipe-dev');
+        
+        this.log.debug("Find All");
+        
+        let ingredients:any[] =await db.collection('tag').find({}).toArray();
 
-        let tagColl = db.collection('tag');
-        return tagColl.find({}).toArray();
-       
+        return ingredients.map((igr) => {
+
+            return {
+                id: igr._id, Name: igr.name, recipeIds: igr.recipeIds
+            };  
+        });
     }
 
 
-    public async findByIds(ids: any[]): Promise<models.tag.RawAttributes[]> {
+    public async findByIds(ids: any[]): Promise<any> {
 
         let db = await MongoClient.connect('mongodb://localhost:27017/instantrecipe-dev');
 

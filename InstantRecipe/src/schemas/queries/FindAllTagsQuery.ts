@@ -1,4 +1,4 @@
-﻿import {  GraphQLFieldConfig } from 'graphql';
+﻿import { GraphQLList, GraphQLFieldConfig } from 'graphql';
 
 import { models } from 'models';
 import { Logger } from '../../core';
@@ -12,7 +12,7 @@ export class FindAllTagsQuery extends AbstractQuery implements GraphQLFieldConfi
 
     public log = Logger('app:schemas:tag:FindTagById');
 
-    public type = TagType;
+    public type = new GraphQLList(TagType);
     public allow = ['admin'];
     public args = {
         
@@ -24,13 +24,13 @@ export class FindAllTagsQuery extends AbstractQuery implements GraphQLFieldConfi
     }
 
     public async execute(root: RootValue, args: any, context: Context<arguments.ID>): Promise<any[]> {
-        this.log.debug('resolve FindTagByIdQuery(%s)', args.id);
+        this.log.debug('resolve FindAllTagsQuery');
         const tag = await context.Services.TagService.findAll();
-        this.log.debug('result FindTagByIdQuery(%s)', tag);
+        this.log.debug('result FindAllTagsQuery complete');
         return tag;
     }
 
-    public after(result: models.book.Attributes, context: Context<arguments.ID>, args: arguments.ID): Promise<models.book.Attributes> {
+    public after(result: models.tag.Attributes, context: Context<arguments.ID>, args: arguments.ID): Promise<models.tag.Attributes> {
         this.log.debug('hook after args', args);
         return Promise.resolve(result);
     }

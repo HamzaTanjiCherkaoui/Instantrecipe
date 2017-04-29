@@ -11,7 +11,7 @@ export const TagType = new GraphQLObjectType({
     fields: () => ({
         id: new IdField(),
         Name: new NameField(),
-        receipeids: new RecipeIdsField()
+        recipeIds: new RecipeIdsField()
     })
 });
 
@@ -48,7 +48,7 @@ export class TagField extends AbstractField implements GraphQLFieldDefinition, I
 
 
 
-    public log = Logger('app:schemas:author:AuthorField');
+    public log = Logger('app:schemas:author:TagField');
 
     public type = TagType;
     public name = 'Tag';
@@ -57,7 +57,7 @@ export class TagField extends AbstractField implements GraphQLFieldDefinition, I
 
     public execute(source: any, args: any, context: Context<any>): Promise<models.tag.Attributes>
     public execute(source: any, args: any, context: Context<any>): Promise<models.tag.Attributes> {
-        this.log.debug('Resolve Tags' + source.id, source.authorId);
+        this.log.debug('Resolve Tags' + source.id);
 
         
         return context.DataLoaders.TagDataLoader.load(source.id);

@@ -3,16 +3,16 @@ import { AbstactModel } from './AbstactModel';
 
 
 export class TagModel implements AbstactModel<models.tag.Attributes, models.tag.RawAttributes> {
-    id: any;
-    name: string;
-    receipeIds: any[];
+    id?: any;
+    name?: string;
+    receipeIds?: any[];
 
     constructor(attributes?: models.tag.Attributes | models.tag.RawAttributes, isRaw: boolean = true) {
         if (attributes) {
             if (isRaw) {
-                this.mapDatabaseObject(attributes);
+                this.mapDatabaseObject(<models.tag.RawAttributes>attributes);
             } else {
-                this.mapJson(attributes);
+                this.mapJson(<models.tag.Attributes>attributes);
             }
         }
     }
@@ -43,7 +43,7 @@ export class TagModel implements AbstactModel<models.tag.Attributes, models.tag.
 
     public mapDatabaseObject(attributes: models.tag.RawAttributes): TagModel {
         if (attributes !== undefined) {
-            this.setId(attributes.id);
+            this.setId(attributes._id);
             this.setName(attributes.name);
             this.setRecipeIds(attributes.receipeIds);
         }
@@ -70,12 +70,12 @@ export class Tag implements models.tag.Attributes {
     }
 }
 export class RawTag implements models.tag.RawAttributes {
-    id: any;
+    _id: any;
     name: string;
     receipeIds: any[];
 
     constructor(builder: TagModel) {
-        this.id = builder.id;
+        this._id = builder.id;
         this.name = builder.name;
         this.receipeIds = builder.receipeIds;
     }

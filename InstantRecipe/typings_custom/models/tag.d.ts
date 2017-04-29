@@ -10,7 +10,7 @@
             }
 
             interface RawAttributes {
-                id: any;
+                _id: any;
                 name: string;
                 receipeIds: any[];
             }
