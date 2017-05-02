@@ -3,14 +3,14 @@ import { AbstractField, IGraphQLField } from './AbstractField';
 import { Logger } from '../../core';
 import { Context } from '../../context';
 
-export namespace Tag {
 
-    export const TagType = new GraphQLObjectType({
-        name: 'Tag',
-        description: 'Tags for receipes',
+export namespace ingredient {
+    export const IngredientType = new GraphQLObjectType({
+        name: 'Ingredients',
+        description: 'ingredients for receipes',
         fields: () => ({
             id: new IdField(),
-            Name: new NameField(),
+            name: new NameField(),
             recipeIds: new RecipeIdsField()
         })
     });
@@ -19,7 +19,7 @@ export namespace Tag {
 
         public type = GraphQLID;
         public name = 'Id';
-        public description = 'Id for tag';
+        public description = 'Id for Ingredient';
         public args;
 
     }
@@ -27,8 +27,8 @@ export namespace Tag {
     export class NameField implements GraphQLFieldDefinition {
 
         public type = GraphQLString;
-        public name = 'Tag name';
-        public description = 'Name for tag';
+        public name = 'Ingredient name';
+        public description = 'Name for ingredient';
         public args;
 
     }
@@ -37,22 +37,22 @@ export namespace Tag {
 
         public type = new GraphQLList(GraphQLID);
         public name = 'Receipe Id';
-        public description = 'List of receipes associated with this category';
+        public description = 'List of receipes associated with this ingreient';
         public args;
 
     }
 
 
 
-    export class TagField extends AbstractField implements GraphQLFieldDefinition, IGraphQLField {
+    export class IngredientField extends AbstractField implements GraphQLFieldDefinition, IGraphQLField {
 
 
 
         public log = Logger('app:schemas:author:TagField');
 
-        public type = TagType;
-        public name = 'Tag';
-        public description = 'Tags associated with recipe';
+        public type = IngredientType;
+        public name = 'Ingredient';
+        public description = 'Ingredients associated with recipe';
         public args;
 
         public execute(source: any, args: any, context: Context<any>): Promise<any>
@@ -60,12 +60,11 @@ export namespace Tag {
             this.log.debug('Resolve Tags' + source.id);
 
 
-            return context.DataLoaders.TagDataLoader.load(source.id);
+            return context.DataLoaders.IngredientDataLoader.load(source.id);
 
 
         }
     }
+
 }
-
-
 

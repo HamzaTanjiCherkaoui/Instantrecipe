@@ -154,6 +154,8 @@
     <TypeScriptCompile Include="src\middlewares\OAuthMiddleware.ts" />
     <TypeScriptCompile Include="src\models\AbstactModel.ts" />
     <TypeScriptCompile Include="src\models\index.ts" />
+    <TypeScriptCompile Include="src\models\IngredientModel.ts" />
+    <TypeScriptCompile Include="src\models\RecipeModel.ts" />
     <TypeScriptCompile Include="src\models\TagModel.ts" />
     <TypeScriptCompile Include="src\repositories\AbstractRepository.ts" />
     <TypeScriptCompile Include="src\repositories\IngredientRepository.ts" />
@@ -170,6 +172,8 @@
     <TypeScriptCompile Include="src\schemas\arguments\TextArgument.ts" />
     <TypeScriptCompile Include="src\schemas\fields\AbstractField.ts" />
     <TypeScriptCompile Include="src\schemas\fields\index.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\IngredientsField.ts" />
+    <TypeScriptCompile Include="src\schemas\fields\RecipeField.ts" />
     <TypeScriptCompile Include="src\schemas\fields\TagField.ts" />
     <TypeScriptCompile Include="src\schemas\index.ts" />
     <TypeScriptCompile Include="src\schemas\mutations\AbstractMutation.ts" />
@@ -186,6 +190,8 @@
     <TypeScriptCompile Include="src\schemas\types\SearchType.ts" />
     <TypeScriptCompile Include="src\schemas\types\TagType.ts" />
     <TypeScriptCompile Include="src\services\index.ts" />
+    <TypeScriptCompile Include="src\services\IngredientService.ts" />
+    <TypeScriptCompile Include="src\services\RecipeService.ts" />
     <TypeScriptCompile Include="src\services\TagService.ts" />
     <TypeScriptCompile Include="typings\globals\express-graphql\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\express-serve-static-core\index.d.ts" />
