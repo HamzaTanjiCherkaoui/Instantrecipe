@@ -1,9 +1,10 @@
-import { GraphQLObjectType, GraphQLSchema } from 'graphql';
+import { GraphQLObjectType, GraphQLSchema ,} from 'graphql';
 
 import { GraphQLErrorHandling } from '../core';
 import {
     FindTagByIdQuery,
-    FindAllTagsQuery
+    FindAllTagsQuery,
+    FindRecipeByIdQuery
 } from './queries';
 
 export class Schema {
@@ -14,7 +15,8 @@ export class Schema {
         name: 'Query',
         fields: {
             findTagById: new FindTagByIdQuery(),
-            findAllTag: new FindAllTagsQuery()
+            findAllTag: new FindAllTagsQuery(),
+            findRecipeById: new FindRecipeByIdQuery()
         }
     });
 
@@ -26,7 +28,7 @@ export class Schema {
     //});
 
     private schema: GraphQLSchema = new GraphQLSchema({
-        query: this.rootQuery,
+        query: this.rootQuery
         //mutation: this.rootMutation
     });
 

@@ -1,4 +1,4 @@
-﻿export class IngredientModel {
+﻿export  class  IngredientModel {
     public static ConvertToDomainModel(rawIngr: RawIngredient): DomainIngredient {
 
         return new DomainIngredient(rawIngr);

@@ -1,21 +1,21 @@
-﻿import { GraphQLList, GraphQLFieldConfig } from 'graphql';
+﻿import {  GraphQLFieldConfig, GraphQLID} from 'graphql';
 
 import { models } from 'models';
 import { Logger } from '../../core';
 import { RootValue } from '../../RootValue';
 import { Context } from '../../context';
-import { Tag } from '../fields';
+import { RecipeType } from '../fields';
 import { AbstractQuery, IGraphQLQuery } from './AbstractQuery';
 
 
-export class FindAllTagsQuery extends AbstractQuery implements GraphQLFieldConfig, IGraphQLQuery {
+export class FindRecipeByIdQuery extends AbstractQuery implements GraphQLFieldConfig, IGraphQLQuery {
 
-    public log = Logger('app:schemas:tag:FindTagById');
+    public log = Logger('app:schemas:tag:FindRecipeById');
 
-    public type = new GraphQLList(Tag.TagType);
+    public type = RecipeType;
     public allow = ['admin'];
     public args = {
-        
+        id: { type: GraphQLID }
     };
 
     public before(context: Context<arguments.ID>, args: arguments.ID): Promise<arguments.ID> {
@@ -24,9 +24,10 @@ export class FindAllTagsQuery extends AbstractQuery implements GraphQLFieldConfi
     }
 
     public async execute(root: RootValue, args: any, context: Context<arguments.ID>): Promise<any[]> {
-        this.log.debug('resolve FindAllTagsQuery');
-        const tag = await context.Services.TagService.findAll();
-        this.log.debug('result FindAllTagsQuery complete');
+        this.log.debug('resolve FindRecipeByIdQuery(%s)', args.id);
+
+        const tag = await context.Services.RecipeService.findById(args.id);
+        this.log.debug('result FindRecipeByIdQuery complete');
         return tag;
     }
 

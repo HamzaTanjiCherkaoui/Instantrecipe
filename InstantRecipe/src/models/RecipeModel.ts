@@ -1,4 +1,8 @@
-﻿export class RecipeModel {
+﻿import {RawTag} from './TagModel';
+import {RawIngredient, IngredientModel} from './IngredientModel';
+import * as _ from 'lodash';
+
+export class RecipeModel {
     public static ConvertToDomainModel(rawRecipe: RawRecipe): DomainRecipe {
 
         return new DomainRecipe(rawRecipe);
@@ -16,8 +20,8 @@ export class RawRecipe {
     }
     public _id: any;
     public name: string;
-    public ingredients: any[];
-    public tags: any[];
+    public ingredients: RawIngredient[];
+    public tags: RawTag[];
     public steps: any[];
 
 }
@@ -27,7 +31,7 @@ export class DomainRecipe {
     constructor(recipe: RawRecipe) {
         this.id = recipe._id;
         this.name = recipe.name;
-        this.ingredients = recipe.ingredients;
+        this.ingredients = _.map(recipe.ingredients,(igr)=>IngredientModel.ConvertToDomainModel(igr));
         this.steps = recipe.steps;
         this.tags = recipe.tags;
     }

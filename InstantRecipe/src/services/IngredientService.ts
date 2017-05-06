@@ -1,6 +1,6 @@
 ﻿import { IngredientRepository } from '../repositories';
 import { Logger } from '../core/logger';
-import { NotFoundException } from '../exceptions';
+
 
 
 export class IngredientService {
@@ -14,12 +14,12 @@ export class IngredientService {
 
     public async findByIds(ids: any[]): Promise<any> {
         this.log.debug('findByIds called with ids=', ids);
-        return await this.ingredientRepository.findRecipeById(ids);
+        return await this.ingredientRepository.findIngredientsByIds(ids);
     }
 
     public async findById(id: any): Promise<any> {
         this.log.debug('findById called with id=', id);
-        return await this.ingredientRepository.findRecipeByIds(id);
+        return await this.ingredientRepository.findIngredientsById(id);
 
     }
 

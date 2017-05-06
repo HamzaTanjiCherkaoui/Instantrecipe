@@ -4,7 +4,7 @@ import { Logger } from '../../core';
 import { Context } from '../../context';
 
 
-export namespace ingredient {
+export namespace Ingredient {
     export const IngredientType = new GraphQLObjectType({
         name: 'Ingredients',
         description: 'ingredients for receipes',

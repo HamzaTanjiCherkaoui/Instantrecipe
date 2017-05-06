@@ -4,7 +4,7 @@ import { models } from 'models';
 import { Logger } from '../../core';
 import { RootValue } from '../../RootValue';
 import { Context } from '../../context';
-import { TagType } from '../fields';
+import { Tag } from '../fields';
 import { AbstractQuery, IGraphQLQuery } from './AbstractQuery';
 
 
@@ -12,7 +12,7 @@ export class FindTagByIdQuery extends AbstractQuery implements GraphQLFieldConfi
 
     public log = Logger('app:schemas:tag:FindTagById');
 
-    public type = TagType;
+    public type = Tag.TagType;
     public allow = ['admin'];
     public args = {
         id: { type: GraphQLID }
