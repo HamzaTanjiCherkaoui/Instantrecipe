@@ -18,7 +18,7 @@ export class RawIngredient {
     public name: string;
     public ingredients: any[];
     public recipeIds: any[];
-   
+    public Quantity: any;
 
 }
 
@@ -28,10 +28,12 @@ export class DomainIngredient {
         this.id = recipe._id;
         this.name = recipe.name;
         this.recipeIds = recipe.recipeIds;
+        this.quantity = recipe.Quantity;
     }
 
     public id: any;
     public name: string;
     public recipeIds: any[];
+    public quantity: any;
 
 }

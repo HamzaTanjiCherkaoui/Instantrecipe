@@ -1,7 +1,6 @@
-﻿import { GraphQLFieldDefinition, GraphQLString, GraphQLID, GraphQLList, GraphQLObjectType} from 'graphql';
-import { AbstractField, IGraphQLField } from './AbstractField';
-import { Logger } from '../../core';
-import { Context } from '../../context';
+﻿import { GraphQLFieldDefinition ,GraphQLString, GraphQLID, GraphQLList, GraphQLObjectType} from 'graphql';
+
+
 
 
 export namespace Ingredient {
@@ -11,7 +10,7 @@ export namespace Ingredient {
         fields: () => ({
             id: new IdField(),
             name: new NameField(),
-            recipeIds: new RecipeIdsField()
+            quantity: new QuantityField()
         })
     });
 
@@ -42,29 +41,13 @@ export namespace Ingredient {
 
     }
 
+    export class QuantityField implements GraphQLFieldDefinition {
 
-
-    export class IngredientField extends AbstractField implements GraphQLFieldDefinition, IGraphQLField {
-
-
-
-        public log = Logger('app:schemas:author:TagField');
-
-        public type = IngredientType;
-        public name = 'Ingredient';
-        public description = 'Ingredients associated with recipe';
+        public type = GraphQLString;
+        public name = 'Quantity';
+        public description = 'Quanity in units for recipe';
         public args;
 
-        public execute(source: any, args: any, context: Context<any>): Promise<any>
-        public execute(source: any, args: any, context: Context<any>): Promise<any> {
-            this.log.debug('Resolve Tags' + source.id);
-
-
-            return context.DataLoaders.IngredientDataLoader.load(source.id);
-
-
-        }
     }
-
 }
 

@@ -1,82 +1,36 @@
-﻿import { models } from 'models';
-import { AbstactModel } from './AbstactModel';
+﻿import { Logger } from '../core/logger';
 
 
-export class TagModel implements AbstactModel<models.tag.Attributes, models.tag.RawAttributes> {
-    id?: any;
-    name?: string;
-    receipeIds?: any[];
+export class TagModel {
+    public static ConvertToDomainModel(tag: RawTag): DomainTag {
 
-    constructor(attributes?: models.tag.Attributes | models.tag.RawAttributes, isRaw: boolean = true) {
-        if (attributes) {
-            if (isRaw) {
-                this.mapDatabaseObject(<models.tag.RawAttributes>attributes);
-            } else {
-                this.mapJson(<models.tag.Attributes>attributes);
-            }
-        }
+        return new DomainTag(tag);
     }
 
-    public setId(id: number): TagModel {
-        this.id = id;
-        return this;
-    };
-
-    public setName(name: string): TagModel {
-        this.name = name;
-        return this;
-    };
-
-    public setRecipeIds(ids: any []): TagModel {
-        this.name = name;
-        return this;
-    };
-
-    public mapJson(attributes: models.tag.Attributes): TagModel {
-        if (attributes !== undefined) {
-            this.setId(attributes.id);
-            this.setName(attributes.name);
-            this.setRecipeIds(attributes.receipeIds);  
-        }
-        return this;
-    }
-
-    public mapDatabaseObject(attributes: models.tag.RawAttributes): TagModel {
-        if (attributes !== undefined) {
-            this.setId(attributes._id);
-            this.setName(attributes.name);
-            this.setRecipeIds(attributes.receipeIds);
-        }
-        return this;
-    }
-
-    public toJson(): Tag {
-        return new Tag(this);
-    }
-
-    public toDatabaseObject(): RawTag {
-        return new RawTag(this);
+    public static ConvertToDbModel(tag: DomainTag): any {
+        return new RawTag(tag);
     }
 }
 
-export class Tag implements models.tag.Attributes {
-    id: any;
-    name: string;
-    receipeIds: any[];
-    constructor(builder: TagModel) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.receipeIds = builder.receipeIds;
-    }
-}
-export class RawTag implements models.tag.RawAttributes {
-    _id: any;
-    name: string;
-    receipeIds: any[];
+export class RawTag {
 
-    constructor(builder: TagModel) {
-        this._id = builder.id;
-        this.name = builder.name;
-        this.receipeIds = builder.receipeIds;
+    constructor(tag: DomainTag) {
+
     }
+    public _id: any;
+    public name: string;
+}
+
+export class DomainTag {
+    private log = Logger('app:Model:Tag');
+    constructor(tag: RawTag) {
+        this.log.debug(tag._id);
+        this.log.debug("Model");
+        this.id = tag._id;
+        this.name = tag.name;
+        
+    }
+
+    public id: any;
+    public name: string;
 }

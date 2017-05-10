@@ -89,6 +89,9 @@
     <Folder Include="src\context\" />
     <Folder Include="src\core\" />
     <Folder Include="src\database\" />
+    <Folder Include="src\database\factories\" />
+    <Folder Include="src\database\migrations\" />
+    <Folder Include="src\database\seeds\" />
     <Folder Include="src\exceptions\" />
     <Folder Include="src\middlewares\" />
     <Folder Include="src\models\" />
@@ -99,6 +102,7 @@
     <Folder Include="src\schemas\fields\" />
     <Folder Include="src\schemas\mutations\" />
     <Folder Include="src\schemas\queries\" />
+    <Folder Include="src\schemas\types\" />
     <Folder Include="src\services\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
@@ -181,6 +185,7 @@
     <TypeScriptCompile Include="src\schemas\mutations\index.ts" />
     <TypeScriptCompile Include="src\schemas\queries\AbstractQuery.ts" />
     <TypeScriptCompile Include="src\schemas\queries\FindAllTagsQuery.ts" />
+    <TypeScriptCompile Include="src\schemas\queries\FindRecipeById.ts" />
     <TypeScriptCompile Include="src\schemas\queries\FindTagByIdQuery.ts" />
     <TypeScriptCompile Include="src\schemas\queries\index.ts" />
     <TypeScriptCompile Include="src\schemas\types\AuthorType.ts" />

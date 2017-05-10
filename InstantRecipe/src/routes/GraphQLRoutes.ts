@@ -14,12 +14,12 @@ import {
 } from '../context';
 import {
     
-    TagRepository,
+    
     RecipeRepository
 } from '../repositories';
 import {
 
-    TagService,
+    
     RecipeService
 } from '../services';
 
@@ -59,12 +59,10 @@ export class GraphQLRoutes {
 
     private static buildContext(): void {
         ServicesContext.getInstance()
-            
-            .setTagService(new TagService(new TagRepository()))
             .setRecipeService(new RecipeService(new RecipeRepository()));
         DataLoadersContext.getInstance()
+            .setRecipeDataLoader(ServicesContext.getInstance().RecipeService);
             
-            .setTagDataLoader(ServicesContext.getInstance().TagService);
     }
 
 }

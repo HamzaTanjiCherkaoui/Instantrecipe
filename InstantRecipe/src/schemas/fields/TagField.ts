@@ -1,7 +1,7 @@
 ﻿import { GraphQLFieldDefinition, GraphQLString, GraphQLID, GraphQLList, GraphQLObjectType} from 'graphql';
-import { AbstractField, IGraphQLField } from './AbstractField';
-import { Logger } from '../../core';
-import { Context } from '../../context';
+
+
+
 
 export namespace Tag {
 
@@ -10,7 +10,7 @@ export namespace Tag {
         description: 'Tags for receipes',
         fields: () => ({
             id: new IdField(),
-            Name: new NameField(),
+            name: new NameField(),
             recipeIds: new RecipeIdsField()
         })
     });
@@ -43,28 +43,6 @@ export namespace Tag {
     }
 
 
-
-    export class TagField extends AbstractField implements GraphQLFieldDefinition, IGraphQLField {
-
-
-
-        public log = Logger('app:schemas:author:TagField');
-
-        public type = TagType;
-        public name = 'Tag';
-        public description = 'Tags associated with recipe';
-        public args;
-
-        public execute(source: any, args: any, context: Context<any>): Promise<any>
-        public execute(source: any, args: any, context: Context<any>): Promise<any> {
-            this.log.debug('Resolve Tags' + source.id);
-
-
-            return context.DataLoaders.TagDataLoader.load(source.id);
-
-
-        }
-    }
 }
 
 

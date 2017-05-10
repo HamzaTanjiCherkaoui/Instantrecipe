@@ -1,4 +1,4 @@
-﻿import {RawTag} from './TagModel';
+﻿import {RawTag,TagModel} from './TagModel';
 import {RawIngredient, IngredientModel} from './IngredientModel';
 import * as _ from 'lodash';
 
@@ -33,7 +33,7 @@ export class DomainRecipe {
         this.name = recipe.name;
         this.ingredients = _.map(recipe.ingredients,(igr)=>IngredientModel.ConvertToDomainModel(igr));
         this.steps = recipe.steps;
-        this.tags = recipe.tags;
+        this.tags = _.map(recipe.tags, (tag) => TagModel.ConvertToDomainModel(tag));
     }
 
     public id: any;

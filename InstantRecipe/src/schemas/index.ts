@@ -2,8 +2,6 @@ import { GraphQLObjectType, GraphQLSchema ,} from 'graphql';
 
 import { GraphQLErrorHandling } from '../core';
 import {
-    FindTagByIdQuery,
-    FindAllTagsQuery,
     FindRecipeByIdQuery
 } from './queries';
 
@@ -14,8 +12,6 @@ export class Schema {
     private rootQuery: GraphQLObjectType = new GraphQLObjectType({
         name: 'Query',
         fields: {
-            findTagById: new FindTagByIdQuery(),
-            findAllTag: new FindAllTagsQuery(),
             findRecipeById: new FindRecipeByIdQuery()
         }
     });
